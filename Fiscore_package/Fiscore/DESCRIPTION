@@ -1,0 +1,15 @@
+Package: Fiscore
+Type: Package
+Title: Fiscore
+Version: 0.1.0
+Author: Auste Kanapeckaite
+Maintainer: The package maintainer <info@algorithm379.com>
+Description: The package compliments the research paper "Fi-score: a novel approach to characterise protein topology and aid in drug discovery studies" ;https://doi.org/10.1080/07391102.2020.1854859. Fiscore package allows to explore and identify new topologically and functionally relevant structural features by applying integrated Gaussian Mixture Models.
+License: GPL (>= 3)
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.1.1
+Imports: ggplot2, mclust, bio3d, stringr, plotly, methods,lattice,
+        stats,dplyr
+NeedsCompilation: no
+Packaged: 2021-08-10 09:28:02 UTC; auste
