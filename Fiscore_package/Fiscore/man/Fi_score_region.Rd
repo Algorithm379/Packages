@@ -21,3 +21,9 @@ Fi-score value
 \description{
 Function calculates combined Fi-score for a selected region; NOTE: some PDB files have breakages in their amino acid sequences and those values cannot be assessed. Moreover, values can be calculated either inclusively or not; include is set to FALSE by default
 }
+\examples{
+path_to_processed_PDB<- system.file("extdata", "pdb_df.tabular", package="Fiscore")
+# basic usage of Fiscore_secondary
+pdb_df<-read.table(path_to_processed_PDB)
+Fi_score_region(pdb_df,900,925)
+}

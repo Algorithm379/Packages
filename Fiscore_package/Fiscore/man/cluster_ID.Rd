@@ -27,5 +27,11 @@ cluster_ID(
 A data frame object that contains a summary of clusters
 }
 \description{
-Function to select an optimal number of clusters and a model to be fitted during the EM phase of clustering for Gaussian Mixture Models. The function provides summaries and helps to visualise clusters based on Fi-score using scatter plotting and dimension reduction plots.  Note the function implementation automatically sets seed for reproducability
+Function to select an optimal number of clusters and a model to be fitted during the EM phase of clustering for Gaussian Mixture Models. The function provides summaries and helps to visualise clusters based on Fi-score using scatter plotting and dimension reduction plots.
+}
+\examples{
+path_to_processed_PDB<- system.file("extdata", "pdb_df.tabular", package="Fiscore")
+# basic usage of cluster_ID
+pdb_df<-read.table(path_to_processed_PDB)
+head(cluster_ID(pdb_df))
 }

@@ -15,3 +15,9 @@ bar plot
 \description{
 Function plots a bar plot with  a secondary structure element visualisation based on PDB file data; NOTE: NA refers to unidentified region, e.g., a  likely disordered or unstructured region
 }
+\examples{
+path_to_processed_PDB<- system.file("extdata", "pdb_df.tabular", package="Fiscore")
+# basic usage of Fiscore_secondary
+pdb_df<-read.table(path_to_processed_PDB)
+Fiscore_secondary(pdb_df)
+}

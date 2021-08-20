@@ -17,3 +17,9 @@ multiple plots
 \description{
 Function plots a density plot set for phi/psi angle distributions, Fi-score and normalised B-factor. As well as 3D visualisation of angle distribution for every residue. The plots can be used for a quick assessment of the overall parameters.
 }
+\examples{
+path_to_processed_PDB<- system.file("extdata", "pdb_df.tabular", package="Fiscore")
+# basic usage of density_plots
+pdb_df<-read.table(path_to_processed_PDB)
+density_plots(pdb_df)
+}

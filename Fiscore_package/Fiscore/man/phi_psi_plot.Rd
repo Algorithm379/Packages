@@ -15,3 +15,9 @@ phi_psi_plot(pdb_df)
 \description{
 Function to plot a PDB file phi/psi angle density plot
 }
+\examples{
+path_to_processed_PDB<- system.file("extdata", "pdb_df.tabular", package="Fiscore")
+# basic usage of phi_psi_plot
+pdb_df<-read.table(path_to_processed_PDB)
+phi_psi_plot(pdb_df)
+}

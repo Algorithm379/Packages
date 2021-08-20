@@ -21,3 +21,9 @@ Scaled line graph
 \description{
 Function to plot amino acid sequence hydrophobicity profile using Kyte-Doolittle hydrophobicity scale; Reference= J. Mol. Biol. 157=105-132;1982. The Kyte-Doolittle scale is used for detecting hydrophobic regions in proteins. Regions with a positive value are hydrophobic ans those with negative values are hydrophylic. This scale can be used to identify both surface-exposed regions as well as transmembrane regions, depending on the window size used.
 }
+\examples{
+path_to_processed_PDB<- system.file("extdata", "pdb_df.tabular", package="Fiscore")
+# basic usage of hydrophobicity_plot
+pdb_df<-read.table(path_to_processed_PDB)
+hydrophobicity_plot(pdb_df)
+}

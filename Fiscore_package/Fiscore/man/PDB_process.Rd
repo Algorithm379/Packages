@@ -17,3 +17,7 @@ generates split chain PDB files in the default or selected directory and then re
 \description{
 Function to preprocess and inspect a PDB file
 }
+\examples{
+path_to_PDB_file<- system.file("extdata", "3nf5.pdb", package="Fiscore")
+# basic usage of PDB_process calls the selected path to load a large file
+}

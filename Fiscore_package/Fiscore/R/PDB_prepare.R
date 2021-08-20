@@ -5,12 +5,19 @@
 #' @param file_name PDB file name to load that was split into chains, e.g. '6KZ5_A.pdb'
 
 #' @return  returns a processed data frame with Fi-score 'Fi_score', normalised B factor values 'B_normalised' and secondary structure designations
-#' @import bio3d
-#' @import stringr
-#' @import utils
-#' @import stats
-#' @import dplyr
+#' @ImportFrom bio3d read.pdb
+#' @ImportFrom bio3d clean.pdb
+#' @ImportFrom bio3d torsion.pdb
+#' @ImportFrom stringr str_extract
+#' @ImportFrom stats sd
+#' @ImportFrom stats complete.cases
+#' @ImportFrom dplyr case_when
+#' @ImportFrom dplyr mutate
 #' @export
+#' @examples
+#' path_to_processed_PDB<- system.file("extdata", "3nf5_A.pdb", package="Fiscore")
+#' # you can call PDB_prepare with the set path
+#' head(PDB_prepare(path_to_processed_PDB))
 PDB_prepare<-function(file_name){
 
 
@@ -21,6 +28,9 @@ PDB_prepare<-function(file_name){
     #MIN-MAX normalisation based on the input array
     #input numeric array
     #returns normalised array values
+
+    #check for cases where all B-factor values are 0
+    if((max(array)-min(array)==0)&&(min(array)==0)&&(max(array)==0)){return (0)}
 
     return ((array-min(array))/(max(array)-min(array)))
   }

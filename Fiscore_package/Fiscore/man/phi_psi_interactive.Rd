@@ -15,3 +15,9 @@ Interactive plot
 \description{
 Function plots a scatter plot with  a secondary structure element visualisation based on the PDB file data; NOTE: NA refers to unidentified region, e.g., a disordered region
 }
+\examples{
+path_to_processed_PDB<- system.file("extdata", "pdb_df.tabular", package="Fiscore")
+# basic usage of phi_psi_interactive
+pdb_df<-read.table(path_to_processed_PDB)
+phi_psi_interactive(pdb_df)
+}

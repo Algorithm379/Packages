@@ -15,3 +15,9 @@ Interactive plot
 \description{
 Function plots a 3D scatter plot with  a secondary structure element visualisation based on PDB file data; NOTE: NA refers to unidentified region, e.g., a disordered region. The plot includes information, such as phi and psi dihedral angles as well as normalised B-factor values.
 }
+\examples{
+path_to_processed_PDB<- system.file("extdata", "pdb_df.tabular", package="Fiscore")
+# basic usage of phi_psi_3D
+pdb_df<-read.table(path_to_processed_PDB)
+phi_psi_3D(pdb_df)
+}

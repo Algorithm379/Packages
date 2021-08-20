@@ -7,9 +7,19 @@
 #' @param weight Relative weight of the window edges compared to the window center in percent; default=100
 #' @param model Weight variation model either "linear" or "exponential", if the relative weight at the edges is selected to be < 100 percent; default="linear"
 #' @return  Scaled line graph
-#' @import ggplot2
-#' @import plotly
+#' @ImportFrom ggplot2 aes
+#' @ImportFrom ggplot2 ggplot
+#' @ImportFrom ggplot2 geom_line
+#' @ImportFrom ggplot2 scale_x_continuous
+#' @ImportFrom ggplot2 xlab
+#' @ImportFrom ggplot2 ylab
+#' @ImportFrom ggplot2 ggtitle
 #' @export
+#' @examples
+#' path_to_processed_PDB<- system.file("extdata", "pdb_df.tabular", package="Fiscore")
+#' # basic usage of hydrophobicity_plot
+#' pdb_df<-read.table(path_to_processed_PDB)
+#' hydrophobicity_plot(pdb_df)
 hydrophobicity_plot<-function(pdb_df, window=3, weight=100, model="exponential"){
 
 
@@ -84,7 +94,7 @@ hydrophobicity_plot<-function(pdb_df, window=3, weight=100, model="exponential")
 
   df<-pdb_df[,c("df_resno","df_res" , "Type")]
   rownames(df)<-1:nrow(df)
-  df$Type<-as.factor(df$Type)
+  df$"Type"<-as.factor(df$"Type")
 
 #Prepare weights
   if(model=="exponential"){values<-exp_fit(weight, window)  }
@@ -130,12 +140,15 @@ hydrophobicity_plot<-function(pdb_df, window=3, weight=100, model="exponential")
 #scale scores
   normalised_scores<-MINMAX_normalization_func(scores)
 
-  df$Score<-normalised_scores
+  df$"Score"<-normalised_scores
 
-
+  #to avoid namespace conflucts
+  df_resno_val<-df$"df_resno"
+  Score_val<-df$"Score"
+  Type_val<-df$"Type"
 
   #Plot will capture breakage regions with empty
-ggplot2::ggplot() +ggplot2::geom_line(data = df,ggplot2::aes(df_resno, Score, group = 1, color = Type))+ggplot2::scale_x_continuous(breaks=seq(min(df$df_resno),max(df$df_resno),25), limits=c(min(df$df_resno),max(df$df_resno)))+ggplot2::ggtitle(label="Kyte-Doolittle hydrophobicity plot")+ ggplot2::xlab(label = "Residue number")+ggplot2::ylab(label = "Normalised score")
+ggplot2::ggplot() +ggplot2::geom_line(data = df,ggplot2::aes(df_resno_val, Score_val, group = 1, color = Type_val))+ggplot2::scale_x_continuous(breaks=seq(min(df$"df_resno"),max(df$"df_resno"),25), limits=c(min(df$"df_resno"),max(df$"df_resno")))+ggplot2::ggtitle(label="Kyte-Doolittle hydrophobicity plot")+ ggplot2::xlab(label = "Residue number")+ggplot2::ylab(label = "Normalised score")
 
 
 

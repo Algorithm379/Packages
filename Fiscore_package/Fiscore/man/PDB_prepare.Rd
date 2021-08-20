@@ -15,3 +15,8 @@ returns a processed data frame with Fi-score 'Fi_score', normalised B factor val
 \description{
 Function to prepare a PDB file after it was pre-processed to generate Fi-score and normalised B factor values as well as secondary structure designations
 }
+\examples{
+path_to_processed_PDB<- system.file("extdata", "3nf5_A.pdb", package="Fiscore")
+# you can call PDB_prepare with the set path
+head(PDB_prepare(path_to_processed_PDB))
+}

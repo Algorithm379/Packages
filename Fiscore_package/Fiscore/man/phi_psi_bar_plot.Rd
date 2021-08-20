@@ -15,3 +15,9 @@ Bar plot
 \description{
 Function to plot PDB file dihedral angle distribution per amino acid using a bar plot. NOTE: some PDB files have breakages in their amino acid sequences; that is, some residues might be missing and it will be reflected in the plot via empty spaces
 }
+\examples{
+path_to_processed_PDB<- system.file("extdata", "pdb_df.tabular", package="Fiscore")
+# basic usage of phi_psi_bar_plot
+pdb_df<-read.table(path_to_processed_PDB)
+phi_psi_bar_plot(pdb_df)
+}
