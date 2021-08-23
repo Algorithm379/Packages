@@ -16,7 +16,7 @@ Target evaluation is paramount for rational therapeutics development [2,3]⁠. F
 
 ## 2. Package functions and tutorial
 
-![**Figure 1**. Schematic representation of package functions and specific analyses. Curved arrow indicates that additional information might be supplied to density plots from the cluster identification function.](Images/Figure1.jpg){width=80%}
+![**Figure 1**. Schematic representation of package functions and specific analyses. Curved arrow indicates that additional information might be supplied to density plots from the cluster identification function.](Images/Figure1.jpg)
 
 ## 3. Key features
 
